@@ -1,0 +1,10 @@
+INSERT INTO PRODUCTS (name, description, category, price, available, image_url) VALUES
+('Latte', 'Café onctueux avec du lait chaud et une fine couche de mousse.', 'Lattes', 4.50, TRUE, 'images/latte.png'),
+('Cappuccino', 'Espresso garni d\'une mousse de lait épaisse et légère.', 'Cafés', 4.80, TRUE, 'images/cappuccino.png'),
+('Americano', 'Café dilué à l\'eau chaude pour un goût plus doux.', 'Cafés', 3.50, TRUE, 'images/americano.png'),
+('Espresso', 'Un café court et intense, idéal pour un coup de boost.', 'Cafés', 2.50, TRUE, 'images/espresso.png'),
+('Cortado', 'Espresso adouci avec une petite quantité de lait chaud.', 'Cafés', 3.00, TRUE, 'images/cortado.png'),
+('Macchiato', 'Espresso avec une touche de mousse de lait.', 'Cafés', 3.20, TRUE, 'images/macchiato.png'),
+('Mocha', 'Un mélange délicieux de café, de chocolat et de lait.', 'Lattes', 5.00, TRUE, 'images/mocha.png'),
+('Affogato', 'Espresso versé sur une boule de glace vanille.', 'Cafés', 4.00, TRUE, 'images/affogato.png'),
+('Iced coffee', 'Café rafraîchissant servi avec des glaçons.', 'Cafés', 3.80, TRUE, 'images/iced_coffee.png');
