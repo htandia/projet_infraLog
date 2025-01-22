@@ -1,0 +1,47 @@
+-- Table CUSTOMERS
+CREATE TABLE CUSTOMERS (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table PRODUCTS
+CREATE TABLE PRODUCTS (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    category ENUM('Cafés', 'Thés et infusions', 'Boissons végétales', 'Lattes', 'Smoothies', 'Viennoiserie', 'Pâtisserie', 'Sandwiches') NOT NULL,
+    price DECIMAL(10, 2),
+    available BOOLEAN DEFAULT TRUE,
+    image_url VARCHAR(255)
+);
+
+-- Table ORDERS
+CREATE TABLE ORDERS (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    status ENUM('pending', 'completed', 'cancelled'), -- Remplace par tes valeurs
+    total_amount DECIMAL(10, 2) NOT NULL,
+    order_datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
+    pickup_datetime DATETIME,
+    customer_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES CUSTOMERS(customer_id)
+);
+
+-- Table ORDER_ITEMS
+CREATE TABLE ORDER_ITEMS (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT NOT NULL,
+    sugar ENUM('low', 'medium', 'high'), -- Remplace par tes valeurs
+    size ENUM('small', 'medium', 'large'), -- Remplace par tes valeurs
+    customization TEXT,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES ORDERS(order_id),
+    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
+);
